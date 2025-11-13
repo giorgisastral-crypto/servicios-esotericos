@@ -1,0 +1,79 @@
+/* style.css - Archivo Complementario para Tailwind CSS */
+
+/* ==================================== */
+/* 0. VARIABLES y FONT IMPORTS */
+/* ==================================== */
+
+/* Importar las fuentes de Google */
+@import url('https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+/* NOTA: Las variables de color (paleta esotérica) NO son necesarias aquí, 
+   ya que las definimos y usamos en las clases de Tailwind en el HTML. */
+
+/* ==================================== */
+/* 1. RESETEO BÁSICO y TIPOGRAFÍA */
+/* ==================================== */
+
+/* Reset que mantiene Tailwind */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Aplicar las fuentes principales. Los colores y el fondo los define Tailwind en el <body> del HTML. */
+body {
+    font-family: 'Lato', sans-serif; /* Usamos Lato para el cuerpo (var(--font-body) anterior) */
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Garamond', serif; /* Usamos Garamond para títulos (var(--font-heading) anterior) */
+    /* Los colores de los títulos se definen en el HTML con clases de gradiente de Tailwind */
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s; /* Mantener la transición suave */
+}
+
+/* ==================================== */
+/* 2. ESTILOS DE ANIMACIÓN */
+/* ==================================== */
+
+/* Definiciones de animación pura para las "partículas flotantes" en la sección Hero */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animation-delay-75 {
+    animation-delay: 0.75s;
+}
+
+.animation-delay-150 {
+    animation-delay: 1.5s;
+}
+
+/* ==================================== */
+/* 3. ESTILOS PERSONALIZADOS (Mantenemos por si acaso) */
+/* ==================================== */
+
+/* Estas clases están en el HTML. Si necesitas ajustar algo que Tailwind no te permite, 
+   lo harías aquí, pero por ahora, la magia la hace Tailwind. */
+
+/* Ejemplo: si quieres que todos los inputs tengan un brillo especial al enfocarse, lo harías aquí: */
+/*
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(252, 215, 120, 0.5); 
+}
+*/

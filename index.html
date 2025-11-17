@@ -453,32 +453,42 @@
         const whatsappNumber = '584247161882'; // Nuevo número de WhatsApp (Sin + ni espacios)
         const instagramHandle = 'laboticaespiritual'; 
         const email = 'contacto@laboticaespiritual.com'; 
+
+        // === CORRECCIÓN Y CONTINUACIÓN DEL CÓDIGO FALTANTE ===
+
+        // 1. Actualizar elementos de texto con las variables de contacto
+        document.getElementById('whatsapp-display').innerText = `+${whatsappNumber.substring(0, 3)} ${whatsappNumber.substring(3, 6)} ${whatsappNumber.substring(6)}`; // Formato: +58 424 7161882
+        document.getElementById('instagram-display').innerText = `@${instagramHandle}`;
+        document.getElementById('email-display').innerText = `${email}`;
         
-        // Función para actualizar el año en el footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Función que maneja la acción de agendar consulta (Todos los botones grandes)
-        const handleAgendaConsulta = () => {
-            window.open(`https://wa.me/${whatsappNumber}?text=Hola,%20me%20gustaría%20agendar%20una%20consulta%20prioritaria%20que%20vi%20en%20la%20página%20web.`, '_blank');
-        }
-
-        // Función específica para el botón flotante y la tarjeta de WhatsApp
-        const handleWhatsApp = () => {
-            handleAgendaConsulta();
+        // 2. Definición de Funciones de Manejo de Clics
+        
+        function handleWhatsApp() {
+            // URL con mensaje predeterminado para WhatsApp
+            const message = encodeURIComponent('Hola, me gustaría agendar una consulta de tarot/limpieza energética.');
+            const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+            window.open(url, '_blank');
         }
 
-        // Función para el botón de Instagram (opcional, si tienes un perfil)
-        const handleInstagram = () => {
-            window.open(`https://instagram.com/${instagramHandle}`, '_blank');
+        function handleInstagram() {
+            const url = `https://www.instagram.com/${instagramHandle}`;
+            window.open(url, '_blank');
         }
-
-        // Función para el botón de Email (opcional)
-        const handleEmail = () => {
-            window.location.href = `mailto:${email}?subject=Consulta%20desde%20la%20Página%20Web`;
+        
+        function handleEmail() {
+            const subject = encodeURIComponent('Consulta sobre servicios espirituales - La Botica Espiritual');
+            const url = `mailto:${email}?subject=${subject}`;
+            window.location.href = url; // Usa window.location.href para emails
         }
+        
+        function handleAgendaConsulta() {
+            // Usa la misma lógica de WhatsApp para la CTA de 'Agenda tu Luz'
+            handleWhatsApp();
+        }
+        
+        // 3. Establecer el año actual en el footer
+        document.getElementById('current-year').innerText = new Date().getFullYear();
 
-        // Actualizar el número de WhatsApp visible en la tarjeta de contacto
-        document.getElementById('whatsapp-display').textContent = `+${whatsappNumber.slice(0, 2)} ${whatsappNumber.slice(2, 5)} ${whatsappNumber.slice(5, 8)} ${whatsappNumber.slice(8)}`;
     </script>
 </body>
 </html>
